@@ -23,7 +23,7 @@ cv2.imwrite("D:\\Picture.png", show_window.astype(np.uint8))  #-->not work
 cv2.waitKey(0)
 
 #HAAR classfier
-classfier=cv2.CascadeClassifier("haarcascade_frontalface_alt.xml")
+classfier=cv2.CascadeClassifier("haarcascade_mcs_lefteye.xml")
 image = show_window.astype(np.uint8)
 cv2.equalizeHist(image)
 divisor=8
@@ -33,7 +33,7 @@ faceRects = classfier.detectMultiScale(image, 1.2, 2, cv2.CASCADE_SCALE_IMAGE,mi
 #draw the rectangle of the face
 for faceRect in faceRects:
 	x, y, w, h = faceRect
-	cv2.rectangle(image, (x, y), (x+w, y+h), color)
+	cv2.rectangle(image, (x, y), (x+w, y+h), (255,0,0))
 #show Picture
 cv2.imshow("Recognition", image)
 cv2.waitKey(0)
